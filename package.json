@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "server": "nodemon index.js"
+    "task1": "nodemon index1.js",
+    "task2": "nodemon index2.js"
   },
   "author": "",
   "license": "ISC",
@@ -14,19 +15,9 @@
     "@babel/preset-env": "^7.11.0",
     "@babel/register": "^7.10.5",
     "babel-loader": "^8.1.0",
-    "eslint": "^7.6.0",
-    "eslint-config-airbnb-base": "^14.2.0",
-    "eslint-plugin-import": "^2.22.0",
     "nodemon": "^2.0.4"
   },
   "dependencies": {
-    "@hapi/hapi": "^19.2.0",
-    "core-js": "^3.6.5",
-    "csvtojson": "^2.0.10",
-    "eslint-config-airbnb": "^18.2.0",
-    "express": "^4.17.1",
-    "express-joi-validation": "^4.0.4-beta.0",
-    "regenerator-runtime": "^0.13.7",
-    "uuid": "^8.3.0"
+    "csvtojson": "^2.0.10"
   }
 }
