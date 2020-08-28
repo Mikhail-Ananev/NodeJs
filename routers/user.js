@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { getUser, getUsers, createUser, editUser, deleteUser } from "../controllers/user";
-import { userValidator } from "../validation/user";
+import { userCreateValidator, userEditValidator } from "../validation/user";
 
 const router = Router();
 
@@ -9,7 +9,7 @@ export function user(apiRouter) {
 
     router.get('/:id', getUser);
     router.get('/', getUsers);
-    router.post('/', userValidator, createUser);
-    router.put('/', userValidator, editUser);
+    router.post('/', userCreateValidator, createUser);
+    router.put('/', userEditValidator, editUser);
     router.delete('/:id', deleteUser);
 }

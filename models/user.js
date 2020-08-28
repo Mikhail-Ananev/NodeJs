@@ -1,54 +1,59 @@
 import users from "../helpers/users_from_csv";
 import { v4 as uuidv4 } from 'uuid';
+import { User } from "../db-layer/userDB";
+import { Op } from "sequelize";
 
 export const userModel = {
     getById: (userId) => {
-        return new Promise(resolve =>{
-            return resolve(
-                users.find(user => user.id === userId && !user.isDeleted)
-            );
-        });
+        return User.findByPk(userId).catch((err) => console.error(err));
     },
 
     getList: (loginSubstr, limit) => {
-        const constraint = !!loginSubstr;
-        const filteredUsers = users.filter(user => {
-            return !user.isDeleted && (!constraint || user.login.includes(loginSubstr));
-        });
+        const options = {
+            where: {
+                isDeleted: false,
+            },
+            order: [['login', 'ASC']],
+        };
 
-        filteredUsers.sort((u1, u2) => u1.login.localeCompare(u2.login));
-        return new Promise(resolve => resolve(filteredUsers.slice(0, constraint ? limit : Infinity)));
+        if (loginSubstr) {
+            options.where.login = {
+                [Op.substring]: loginSubstr,
+            }
+        }
+
+        if (limit) {
+            options.limit = limit
+        }
+
+        return User.findAll(options);
     },
 
     create: (userData) => {
-        const newUser = {
-            ...userData,
-            id: uuidv4(),
-            isDeleted: false
-        };
-
-        users.push(newUser);
-        return new Promise(resolve => resolve(newUser));
+        return User.create({
+            login: userData.login,
+            password: userData.password,
+            age: userData.age
+            });
     },
 
     edit: (userData) => {
-        const editableUserIndex = users.findIndex(u => u.id === userData.id);
-
-        if (~editableUserIndex) {
-            userData.isDeleted = users[editableUserIndex].isDeleted;
-            users.splice(editableUserIndex, 1, userData);
-        }
-
-        return new Promise(resolve => resolve(userData));
+        return User.update({
+            login: userData.login,
+            password: userData.password,
+            age: userData.age
+          }, {
+            where: {
+              id: userData.id
+            }
+          });;
     },
 
     delete: (userId) => {
-        const existedUser = users.find(u => u.id === userId);
-
-        if (existedUser) {
-            existedUser.isDeleted = true;
-        }
-
-        return Promise.resolve();
+        return User.destroy({
+            where: {
+              id: userId
+            }
+          });;
     }
 }
