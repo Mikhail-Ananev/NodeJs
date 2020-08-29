@@ -1,5 +1,5 @@
 import { Sequelize, Model, DataTypes } from 'sequelize';
-import { fillUserDB } from '../helpers/fillUserDB';
+import { fillDB } from '../helpers/fillDB';
 import { sequelize } from '../config/db';
 
 export class User extends Model {}
@@ -10,11 +10,12 @@ User.init({
 		primaryKey: true,
 		defaultValue: Sequelize.UUIDV4
 	},
-	login: {
+	login:
+	{
 		type:  DataTypes.STRING(100),
 		allowNull: false
 	},
-	password: {
+  password:	{
 		type:  DataTypes.STRING(100),
 		allowNull: false,
 		validate: {
@@ -38,8 +39,8 @@ User.init({
   freezeTableName: true
 });
 
-User.sync().then(() => User.count().then(res => {
+User.count().then(res => {
 	if (res === 0) {
-		fillUserDB();
+		fillDB();
 	}
-}));
+});
