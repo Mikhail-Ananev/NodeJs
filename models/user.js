@@ -44,14 +44,16 @@ export const userModel = {
             where: {
               id: userData.id
             }
-          });;
+          });
     },
 
     delete: (userId) => {
-        return User.destroy({
+        return User.update({
+            isDeleted: true
+          }, {
             where: {
               id: userId
             }
-          });;
+          });
     }
 }
