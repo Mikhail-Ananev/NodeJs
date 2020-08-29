@@ -20,7 +20,7 @@ export const editGroup = async (req, res) => {
   res.status(200).json(groupData);
 }
 
-export const deletGroup = async (req, res) => {
+export const deleteGroup = async (req, res) => {
   await groupService.delete(req.params.id);
   res.status(200).send();
 }

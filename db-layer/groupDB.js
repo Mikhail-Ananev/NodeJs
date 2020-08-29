@@ -8,7 +8,8 @@ Group.init({
 	id: {
 		type: DataTypes.UUID,
 		primaryKey: true,
-		defaultValue: Sequelize.UUIDV4
+        defaultValue: Sequelize.UUIDV4,
+        field: 'group_id'
 	},
 	name: {
 		type:  DataTypes.STRING(100),
@@ -16,7 +17,10 @@ Group.init({
 	},
 	permissions:
 	{
-		type:  DataTypes.ARRAY(DataTypes.INTEGER),
+        type:  DataTypes.ARRAY(DataTypes.STRING(50)),
+        validate: {
+            isIn: [['READ', 'WRITE', 'DELETE', 'SHARE', 'UPLOAD_FILES']],
+        }
 	},
 }, {
   sequelize, 

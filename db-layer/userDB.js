@@ -8,7 +8,8 @@ User.init({
 	id: {
 		type: DataTypes.UUID,
 		primaryKey: true,
-		defaultValue: Sequelize.UUIDV4
+		defaultValue: Sequelize.UUIDV4,
+		field: 'user_id'
 	},
 	login: {
 		type:  DataTypes.STRING(100),

@@ -1,5 +1,3 @@
-import users from "../helpers/users_from_csv";
-import { v4 as uuidv4 } from 'uuid';
 import { User } from "../db-layer/userDB";
 import { Op } from "sequelize";
 
