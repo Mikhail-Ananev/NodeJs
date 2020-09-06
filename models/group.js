@@ -28,9 +28,9 @@ export const groupModel = {
     },
 
     delete: (groupId) => {
-        return Group.delete({
+        return Group.destroy({
 				where: {
-				id: groupId
+				    id: groupId
 				}
 			});
     }

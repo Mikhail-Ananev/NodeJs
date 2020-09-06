@@ -1,10 +1,7 @@
 import { userGroupService } from "../services/userGroup"
 
 export const getUserGroups = async (req, res) => {
-  console.dir(userGroupService);
-
   const userGroupsData = await userGroupService.getList();
-  console.dir(userGroupsData);
   res.status(200).json(userGroupsData);
 };
 

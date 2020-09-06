@@ -2,10 +2,10 @@ import { userGroupModel } from "../models/userGroup"
 
 export const userGroupService = {
     getList: async () => {
-        return await userGroupModel.getList(loginSubstr, limit)
+        return await userGroupModel.getList()
     },
 
-    create: async (userData) => {
-        return await userGroupModel.create(userData)
+    create: async (userGroupData) => {
+        return await userGroupModel.create(userGroupData)
     },
 }

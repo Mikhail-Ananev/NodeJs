@@ -9,9 +9,6 @@ export const fillUserGroupDB = () => {
             const tableDataObj = [];
 
             for (let i = 0; i < min; i++) {
-                console.dir(data[0][i].getDataValue('id'));
-                console.dir(data[1][i].getDataValue('id'));
-
                 tableDataObj.push({
                     UserId: data[0][i].getDataValue('id'),
                     GroupId: data[1][i].getDataValue('id'),
