@@ -11,27 +11,27 @@ export const groupModel = {
 
     create: (groupData) => {
         return Group.create({
-            name: groupData.name,
-            permissions: groupData.permissions,
+				name: groupData.name,
+				permissions: groupData.permissions,
             });
     },
 
     edit: (groupData) => {
         return Group.update({
-            name: groupData.name,
-            permissions: groupData.permissions,
-          }, {
-            where: {
-              id: groupData.id
-            }
-          });
+				name: groupData.name,
+				permissions: groupData.permissions,
+			}, {
+				where: {
+					id: groupData.id
+				}
+			});
     },
 
     delete: (groupId) => {
         return Group.delete({
-            where: {
-              id: groupId
-            }
-          });
+				where: {
+				id: groupId
+				}
+			});
     }
-}
+};

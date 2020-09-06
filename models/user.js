@@ -29,31 +29,31 @@ export const userModel = {
 
     create: (userData) => {
         return User.create({
-            login: userData.login,
-            password: userData.password,
-            age: userData.age
+                login: userData.login,
+                password: userData.password,
+                age: userData.age
             });
     },
 
     edit: (userData) => {
         return User.update({
-            login: userData.login,
-            password: userData.password,
-            age: userData.age
-          }, {
-            where: {
-              id: userData.id
-            }
-          });
+                login: userData.login,
+                password: userData.password,
+                age: userData.age
+            }, {
+                where: {
+                id: userData.id
+                }
+            });
     },
 
     delete: (userId) => {
         return User.update({
-            isDeleted: true
-          }, {
-            where: {
-              id: userId
-            }
-          });
+                isDeleted: true
+            }, {
+                where: {
+                id: userId
+                }
+            });
     }
 }
