@@ -18,8 +18,6 @@ export const userGroupModel = {
                 });              
             }
     
-            console.dir(tableDataObj);
-    
             return UserGroup.bulkCreate(tableDataObj, { transaction: t });
           }, (err) => {
             console.dir(err);

@@ -1,6 +1,7 @@
 import { User } from "../db-layer/userDB";
 
 export const fillUserDB = () => {
+	console.dir('fillUserDB');
 	User.bulkCreate([
 		{ login: 'Mikhail', password: 'pass1', age: 14 },
 		{ login: 'Vitaliy', password: 'pass2', age: 75 },

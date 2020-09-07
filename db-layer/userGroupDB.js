@@ -1,4 +1,3 @@
-import { fillUserGroupDB } from '../helpers/fillUserGroupDB';
 import { User } from './userDB';
 import { Group } from './groupDB';
 import { DataTypes, Model } from 'sequelize';
@@ -23,12 +22,6 @@ function initUserGroup(sequelize) {
 
 	User.belongsToMany(Group, { through: UserGroup });
 	Group.belongsToMany(User, { through: UserGroup });
-
-	UserGroup.count().then(res => {
-		if (res === 0) {
-			fillUserGroupDB();
-		}
-	});
 }
 
 export { initUserGroup, UserGroup };
