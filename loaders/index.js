@@ -10,5 +10,6 @@ export const loaders = (app) => {
   .catch(err => {
       console.log('Can\'t connect to database!');
   });
+
   routerLoader(app);
 };
