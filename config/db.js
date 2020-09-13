@@ -1,4 +1,7 @@
 import { Sequelize } from 'sequelize';
+import { initModels } from "../db-layer/initModels";
+
+const db = {};
 
 export const sequelize = new Sequelize({
     dialect: 'postgres',
@@ -9,3 +12,10 @@ export const sequelize = new Sequelize({
     database: 'df15qd1la28m82',
     dialectOptions: { ssl: { rejectUnauthorized: false } }
 });
+
+db.sequelize = sequelize;
+db.Sequelize = Sequelize;
+
+initModels(db.sequelize);
+
+export default db;

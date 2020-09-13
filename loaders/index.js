@@ -1,8 +1,9 @@
-import routerLoader from "./routerLoader";
+import { routerLoader } from "./routerLoader";
 import { sequelize } from "../config/db";
 
-export function loaders(app) {
-  sequelize.authenticate()
+export const loaders = (app) => {
+  sequelize
+  .authenticate()
   .then(() => {
       console.log('Connection to database!');
   })
