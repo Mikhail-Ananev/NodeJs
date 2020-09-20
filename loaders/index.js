@@ -1,14 +1,10 @@
 import { routerLoader } from "./routerLoader";
-import { sequelize } from "../config/db";
+import { logger } from "../config/logger";
 
 export const loaders = (app) => {
-  sequelize
-  .authenticate()
-  .then(() => {
-      console.log('Connection to database!');
-  })
-  .catch(err => {
-      console.log('Can\'t connect to database!');
+  process.on('uncaughtException', err => {
+    logger.log('error', 'UncaughtException happens... System shut down' + JSON.stringify(err));
+    process.exit(1);
   });
 
   routerLoader(app);
