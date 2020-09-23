@@ -1,4 +1,5 @@
 import { logger } from "../config/logger";
+import DatabaseError from "../helpers/errors/databaseError";
 import { userGroupService } from "../services/userGroup"
 
 export const getUserGroups = async (req, res, next) => {
@@ -10,7 +11,8 @@ export const getUserGroups = async (req, res, next) => {
 		res.status(200).json(userGroupsData);
 	}
 	catch (error) {
-		next({ error: error, method: METHOD });
+		const err = new DatabaseError(error.message);
+		next({ error: err, method: METHOD });
 	}
 };
 
@@ -23,6 +25,7 @@ export const addUserGroup = async (req, res, next) => {
 		res.status(200).json(userGroupData);
 	}
 	catch (error) {
-		next({ error: error, method: METHOD, params: req.body });
+		const err = new DatabaseError(error.message);
+		next({ error: err, method: METHOD, params: req.body });
 	}
 };

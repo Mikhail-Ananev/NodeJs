@@ -10,7 +10,8 @@ export const getGroup = async (req, res, next) => {
 		res.status(200).json(groupData);
 	}
 	catch (error) {
-		next({ error: error, method: METHOD, params: { id: req.params.id } });
+		const err = new DatabaseError(error.message);
+		next({ error: err, method: METHOD, params: { id: req.params.id } });
 	}
 };
 
@@ -23,7 +24,8 @@ export const getGroups = async (req, res, next) => {
 		res.status(200).json(groupData);
 	}
 	catch (error) {
-		next({ error: error, method: METHOD });
+		const err = new DatabaseError(error.message);
+		next({ error: err, method: METHOD });
 	}
 };
 
@@ -36,7 +38,8 @@ export const createGroup = async (req, res, next) => {
 		res.status(200).json(groupData);
 	}
 	catch (error) {
-		next({ error: error, method: METHOD, params: req.body });
+		const err = new DatabaseError(error.message);
+		next({ error: err, method: METHOD, params: req.body });
 	}
 };
 
@@ -49,7 +52,8 @@ export const editGroup = async (req, res, next) => {
 		res.status(200).json(groupData);
 	}
 	catch (error) {
-		next({ error: error, method: METHOD, params: req.body });
+		const err = new DatabaseError(error.message);
+		next({ error: err, method: METHOD, params: req.body });
 	}
 };
 
@@ -62,6 +66,7 @@ export const deleteGroup = async (req, res, next) => {
 		res.status(200).send();
 	}
 	catch (error) {
-		next({ error: error, method: METHOD, params: { id: req.params.id } });
+		const err = new DatabaseError(error.message);
+		next({ error: err, method: METHOD, params: { id: req.params.id } });
 	}
 };

@@ -1,4 +1,5 @@
 import { logger } from "../config/logger";
+import DatabaseError from "../helpers/errors/databaseError";
 import { userService } from "../services/user";
 
 export const getUser = async (req, res, next) => {
@@ -8,9 +9,10 @@ export const getUser = async (req, res, next) => {
 		const userData = await userService.getById(req.params.id);
 		logger.log('info', JSON.stringify({ method: METHOD, id: req.params.id }));
 		res.status(200).json(userData);
-		}
+	}
 	catch (error) {
-		next({ error: error, method: METHOD, params: { id: req.params.id }});
+		const err = new DatabaseError(error.message);
+		next({ error: err, method: METHOD, params: { id: req.params.id }});
 	}
 };
 
@@ -23,7 +25,8 @@ export const getUsers = async (req, res, next) => {
 		res.status(200).json(usersData);
 	}
 	catch (error) {
-		next({ error: error, method: METHOD, params: { substring: req.query.loginSubstring, limit: req.query.limit } });
+		const err = new DatabaseError(error.message);
+		next({ error: err, method: METHOD, params: { substring: req.query.loginSubstring, limit: req.query.limit } });
 	}
 };
 
@@ -36,7 +39,8 @@ export const createUser = async (req, res, next) => {
 		res.status(200).json(userData);
 	}
 	catch (error) {
-		next({ error: error, method: METHOD, params: req.body });
+		const err = new DatabaseError(error.message);
+		next({ error: err, method: METHOD, params: req.body });
 	}
 };
 
@@ -49,7 +53,8 @@ export const editUser = async (req, res, next) => {
 		res.status(200).json(userData);
 	}
 	catch (error) {
-		next({ error: error, method: METHOD, params: req.body });
+		const err = new DatabaseError(error.message);
+		next({ error: err, method: METHOD, params: req.body });
 	}
 };
 
@@ -62,6 +67,7 @@ export const deleteUser = async (req, res, next) => {
 		res.status(200).send();
 	}
 	catch (error) {
-		next({ error: error, method: METHOD, params: { id: req.params.id } });
+		const err = new DatabaseError(error.message);
+		next({ error: err, method: METHOD, params: { id: req.params.id } });
 	}
 };
