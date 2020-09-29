@@ -3,7 +3,7 @@ import { Op } from "sequelize";
 
 export const userModel = {
     getById: (userId) => {
-        return User.findByPk(userId).catch((err) => console.error(err));
+        return User.findByPk(userId);
     },
 
     getList: (loginSubstr, limit) => {
