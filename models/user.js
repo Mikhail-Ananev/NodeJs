@@ -1,7 +1,5 @@
 import { User } from "../db-layer/userDB";
 import { Op } from "sequelize";
-import DatabaseError from "../helpers/errors/databaseError";
-import NotFoundError from "../helpers/errors/notFoundError";
 
 export const userModel = {
     getById: (userId) => {

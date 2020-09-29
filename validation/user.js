@@ -1,5 +1,4 @@
 import Joi from "@hapi/joi";
-import { createValidator } from "express-joi-validation";
 import { uuidV4Pattern } from "../config";
 import { logger } from "../config/logger";
 
