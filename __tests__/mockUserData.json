@@ -1,0 +1,38 @@
+[
+    {
+        "id": "39981e7f-5230-41e1-99ce-f3dcfb863b1c",
+        "login": "Olga",
+        "password": "pass5",
+        "age": 36,
+        "isDeleted": false,
+        "createdAt": "2020-09-07T16:15:59.519Z",
+        "updatedAt": "2020-09-07T16:15:59.519Z"
+    },
+    {
+        "id": "1bdab053-9507-469d-9ac4-1a16f6712f08",
+        "login": "Olivia",
+        "password": "pass4",
+        "age": 83,
+        "isDeleted": false,
+        "createdAt": "2020-09-07T16:15:59.519Z",
+        "updatedAt": "2020-09-07T16:15:59.519Z"
+    },
+    {
+        "id": "fbf8af81-1908-4066-b5b7-3699e36d6ea3",
+        "login": "Vitaliy",
+        "password": "pass2",
+        "age": 75,
+        "isDeleted": false,
+        "createdAt": "2020-09-07T16:15:59.519Z",
+        "updatedAt": "2020-09-07T16:15:59.519Z"
+    },
+    {
+        "id": "642813ad-c591-4a5f-b0cd-cabd1c93edd8",
+        "login": "Vladimir",
+        "password": "mir",
+        "age": 56,
+        "isDeleted": false,
+        "createdAt": "2020-09-19T13:34:37.367Z",
+        "updatedAt": "2020-09-19T13:34:37.367Z"
+    }
+]

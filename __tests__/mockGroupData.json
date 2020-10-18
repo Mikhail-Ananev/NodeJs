@@ -1,0 +1,33 @@
+[
+    {
+        "id": "a38c810a-dad4-4c32-bc4f-0bb76fa25090",
+        "name": "ReadWrite",
+        "permissions": [
+            "READ",
+            "WRITE"
+        ],
+        "createdAt": "2020-09-07T16:15:59.509Z",
+        "updatedAt": "2020-09-07T16:15:59.509Z"
+    },
+    {
+        "id": "defd3305-6c91-40d2-81be-f7b77ab69f2d",
+        "name": "ShareUpload",
+        "permissions": [
+            "SHARE",
+            "UPLOAD_FILES"
+        ],
+        "createdAt": "2020-09-07T16:15:59.509Z",
+        "updatedAt": "2020-09-07T16:15:59.509Z"
+    },
+    {
+        "id": "cf0cc123-8326-404b-800e-ac9ec616d9aa",
+        "name": "Custom",
+        "permissions": [
+            "DELETE",
+            "SHARE",
+            "UPLOAD_FILES"
+        ],
+        "createdAt": "2020-09-07T16:15:59.509Z",
+        "updatedAt": "2020-09-07T16:15:59.509Z"
+    }
+]
